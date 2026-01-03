@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "ai-education-platform",
+		"name": "AI Education Platform Backend",
+		"description": "Complete Postman collection for testing AI Education Platform with 8 n8n agents",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "🎯 Live Doubt Resolution",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\",\n    \"question_id\": \"q101\",\n    \"step_number\": 1,\n    \"student_answer\": \"I don't understand binary search\",\n    \"intent\": \"direct_solution\",\n    \"topic\": \"Binary Search\",\n    \"difficulty\": \"medium\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/doubt",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"doubt"
+					]
+				},
+				"description": "FEATURE 1: Direct doubt resolution using Agent 1"
+			},
+			"response": []
+		},
+		{
+			"name": "🧩 Guided Problem Solving",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\",\n    \"question_id\": \"q101\",\n    \"step_number\": 2,\n    \"student_answer\": \"I'm stuck at the recursion step\",\n    \"intent\": \"guided\",\n    \"topic\": \"Binary Search\",\n    \"difficulty\": \"medium\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/problem/solve",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"problem",
+						"solve"
+					]
+				},
+				"description": "FEATURE 2: Guided problem solving with Agents 2,3,4,8"
+			},
+			"response": []
+		},
+		{
+			"name": "💡 Progressive Hints",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\",\n    \"question_id\": \"q101\",\n    \"step_number\": 2,\n    \"student_answer\": \"I'm confused about the base case\",\n    \"intent\": \"guided\",\n    \"topic\": \"Binary Search\",\n    \"difficulty\": \"medium\",\n    \"current_hint_level\": 1\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/problem/hint",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"problem",
+						"hint"
+					]
+				},
+				"description": "Progressive hint system using Agent 2"
+			},
+			"response": []
+		},
+		{
+			"name": "📊 Problem Progress Update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\",\n    \"question_id\": \"q101\",\n    \"step_number\": 3,\n    \"student_answer\": \"I think I need to check mid element\",\n    \"intent\": \"guided\",\n    \"topic\": \"Binary Search\",\n    \"difficulty\": \"medium\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/problem/progress",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"problem",
+						"progress"
+					]
+				},
+				"description": "Track problem solving progress"
+			},
+			"response": []
+		},
+		{
+			"name": "🎥 Video Assistance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\",\n    \"question_id\": \"q101\",\n    \"step_number\": 2,\n    \"student_answer\": \"I need to see this explained visually\",\n    \"intent\": \"video\",\n    \"topic\": \"Binary Search\",\n    \"difficulty\": \"medium\",\n    \"video_context\": \"recursive implementation\",\n    \"timestamp\": 120\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/video/assist",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"video",
+						"assist"
+					]
+				},
+				"description": "FEATURE 3: Video assistance using Agent 8"
+			},
+			"response": []
+		},
+		{
+			"name": "📈 Progress Tracking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\",\n    \"topic\": \"Binary Search\",\n    \"time_range\": 7\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/progress",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"progress"
+					]
+				},
+				"description": "FEATURE 4: Progress tracking using Agents 6,7"
+			},
+			"response": []
+		},
+		{
+			"name": "📋 Dashboard (GET)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/dashboard?user_id=u123&topic=Binary%20Search",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dashboard"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "u123"
+						},
+						{
+							"key": "topic",
+							"value": "Binary Search",
+							"description": "Optional topic filter"
+						}
+					]
+				},
+				"description": "FEATURE 5: Dashboard with flashcards using Agents 6,7"
+			},
+			"response": []
+		},
+		{
+			"name": "📋 Dashboard (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": \"u123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/dashboard",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dashboard"
+					]
+				},
+				"description": "Alternative dashboard endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "🏥 Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Check application health status"
+			},
+			"response": []
+		},
+		{
+			"name": "🏠 Root Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Get API information and endpoints"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
