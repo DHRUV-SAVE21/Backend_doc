@@ -1,5 +1,4 @@
 from pydantic_settings import BaseSettings
-from typing import Optional
 
 
 class Settings(BaseSettings):
@@ -14,7 +13,7 @@ class Settings(BaseSettings):
     
     # Application Configuration
     APP_NAME: str = "AI Education Platform Backend"
-    APP_VERSION: str = "1.0.0"
+    APP_VERSION: str = "2.0.0"
     DEBUG: bool = True
     
     # Security
@@ -22,6 +21,13 @@ class Settings(BaseSettings):
     
     # Logging
     LOG_LEVEL: str = "INFO"
+    
+    # LLM Configuration (Add these fields to match .env file)
+    OPENAI_API_KEY: str | None = None
+    GOOGLE_API_KEY: str | None = None
+    GEMINI_API_KEY: str | None = None
+    SECONDARY_GEMINI_KEY: str | None = None
+    THIRD_GEMINI_KEY: str | None = None
     
     class Config:
         env_file = ".env"
